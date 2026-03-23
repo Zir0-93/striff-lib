@@ -41,6 +41,18 @@ public class StriffConfig {
      * Hard limit to avoid sending extremely large diagrams to PlantUML.
      */
     private int maxComponentsPerDiagram = 120;
+    /**
+     * Flag to control whether to include internal components in diagrams.
+     */
+    private boolean includeInternalComponents = true;
+    /**
+     * Optional custom title for the generated diagram.
+     */
+    private String diagramTitle = "";
+    /**
+     * Minimum code similarity threshold for considering components as modified.
+     */
+    private double similarityThreshold = 0.85;
 
     public StriffConfig() {
     }
@@ -125,6 +137,51 @@ public class StriffConfig {
 
     public int maxComponentsPerDiagram() {
         return this.maxComponentsPerDiagram;
+    }
+
+    public StriffConfig setIncludeInternalComponents(boolean includeInternalComponents) {
+        this.includeInternalComponents = includeInternalComponents;
+        return this;
+    }
+
+    public boolean includeInternalComponents() {
+        return this.includeInternalComponents;
+    }
+
+    public StriffConfig setDiagramTitle(String diagramTitle) {
+        this.diagramTitle = diagramTitle != null ? diagramTitle : "";
+        return this;
+    }
+
+    public String diagramTitle() {
+        return this.diagramTitle;
+    }
+
+    public StriffConfig setSimilarityThreshold(double similarityThreshold) {
+        if (similarityThreshold < 0.0 || similarityThreshold > 1.0) {
+            throw new IllegalArgumentException("similarityThreshold must be between 0.0 and 1.0");
+        }
+        this.similarityThreshold = similarityThreshold;
+        return this;
+    }
+
+    public double similarityThreshold() {
+        return this.similarityThreshold;
+    }
+
+    /**
+     * Checks if the config has any file filters set.
+     */
+    public boolean hasFileFilters() {
+        return !this.filesFilter.isEmpty();
+    }
+
+    /**
+     * Gets a formatted config summary for logging purposes.
+     */
+    public String getConfigSummary() {
+        return String.format("StriffConfig[outputMode=%s, languages=%d, maxComponents=%d]",
+                this.outputMode, this.languages.size(), this.maxComponentsPerDiagram);
     }
 
     @Override

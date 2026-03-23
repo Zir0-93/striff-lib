@@ -163,4 +163,53 @@ public class DiagramComponent {
     public String toString() {
         return this.uniqueName();
     }
+
+    /**
+     * Returns a qualified display name including package and class name.
+     */
+    @JsonProperty("displayName")
+    public String displayName() {
+        return this.cmp.pkg().toString() + "." + this.cmp.name();
+    }
+
+    /**
+     * Checks if this component has any children.
+     */
+    @JsonProperty("hasChildren")
+    public boolean hasChildren() {
+        return !this.children.isEmpty();
+    }
+
+    /**
+     * Gets the count of children for this component.
+     */
+    @JsonProperty("childrenCount")
+    public int childrenCount() {
+        return this.children.size();
+    }
+
+    /**
+     * Checks if this component has any augmentations.
+     */
+    @JsonIgnore
+    public boolean hasAugmentations() {
+        return !this.augmentations.isEmpty();
+    }
+
+    /**
+     * Gets all augmentation keys.
+     */
+    @JsonIgnore
+    public Set<String> augmentationKeys() {
+        return this.augmentations.keySet();
+    }
+
+    /**
+     * Gets a short summary of this component for debugging.
+     */
+    @JsonIgnore
+    public String debugSummary() {
+        return String.format("DiagramComponent[type=%s, name=%s, children=%d]",
+                this.componentType(), this.name(), this.children.size());
+    }
 }

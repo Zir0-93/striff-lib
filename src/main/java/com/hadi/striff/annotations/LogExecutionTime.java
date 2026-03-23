@@ -8,4 +8,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD})
 public @interface LogExecutionTime {
+
+    /**
+     * Optional custom message for logging execution time.
+     */
+    String value() default "";
 }

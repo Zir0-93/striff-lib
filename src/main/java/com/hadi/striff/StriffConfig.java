@@ -41,6 +41,18 @@ public class StriffConfig {
      * Hard limit to avoid sending extremely large diagrams to PlantUML.
      */
     private int maxComponentsPerDiagram = 120;
+    /**
+     * Flag to control whether to include internal components in diagrams.
+     */
+    private boolean includeInternalComponents = true;
+    /**
+     * Optional custom title for the generated diagram.
+     */
+    private String diagramTitle = "";
+    /**
+     * Minimum code similarity threshold for considering components as modified.
+     */
+    private double similarityThreshold = 0.85;
 
     public StriffConfig() {
     }
@@ -127,9 +139,101 @@ public class StriffConfig {
         return this.maxComponentsPerDiagram;
     }
 
+    public StriffConfig setIncludeInternalComponents(boolean includeInternalComponents) {
+        this.includeInternalComponents = includeInternalComponents;
+        return this;
+    }
+
+    public boolean includeInternalComponents() {
+        return this.includeInternalComponents;
+    }
+
+    public StriffConfig setDiagramTitle(String diagramTitle) {
+        this.diagramTitle = diagramTitle != null ? diagramTitle : "";
+        return this;
+    }
+
+    public String diagramTitle() {
+        return this.diagramTitle;
+    }
+
+    public StriffConfig setSimilarityThreshold(double similarityThreshold) {
+        if (similarityThreshold < 0.0 || similarityThreshold > 1.0) {
+            throw new IllegalArgumentException("similarityThreshold must be between 0.0 and 1.0");
+        }
+        this.similarityThreshold = similarityThreshold;
+        return this;
+    }
+
+    public double similarityThreshold() {
+        return this.similarityThreshold;
+    }
+
+    /**
+     * Checks if the config has any file filters set.
+     */
+    public boolean hasFileFilters() {
+        return !this.filesFilter.isEmpty();
+    }
+
+    /**
+     * Gets a formatted config summary for logging purposes.
+     */
+    public String getConfigSummary() {
+        return String.format("StriffConfig[outputMode=%s, languages=%d, maxComponents=%d]",
+                this.outputMode, this.languages.size(), this.maxComponentsPerDiagram);
+    }
+
     @Override
     public String toString() {
         return "Output Mode: " + this.outputMode + ", Languages: " + this.languages + ", Filter Files: "
                 + this.filesFilter + ", Max Components/Diagram: " + this.maxComponentsPerDiagram;
+    }
+
+    /**
+     * Returns true if augmenters are enabled.
+     */
+    public boolean isAugmentersEnabled() {
+        return this.enableAugmenters;
+    }
+
+    /**
+     * Returns true if the config has a custom diagram title.
+     */
+    public boolean hasCustomDiagramTitle() {
+        return this.diagramTitle != null && !this.diagramTitle.isEmpty();
+    }
+
+    /**
+     * Returns true if a display override has been set.
+     */
+    public boolean hasDisplayOverride() {
+        return this.displayOverride != null;
+    }
+
+    /**
+     * Returns true if internal components should be included.
+     */
+    public boolean shouldIncludeInternalComponents() {
+        return this.includeInternalComponents;
+    }
+
+    /**
+     * Creates a builder-style copy of this config.
+     */
+    public StriffConfig copy() {
+        StriffConfig copy = new StriffConfig();
+        copy.outputMode = this.outputMode;
+        copy.filesFilter = new HashSet<>(this.filesFilter);
+        copy.languages = new HashSet<>(this.languages);
+        copy.metadataOnly = this.metadataOnly;
+        copy.colorScheme = this.colorScheme;
+        copy.displayOverride = this.displayOverride;
+        copy.enableAugmenters = this.enableAugmenters;
+        copy.maxComponentsPerDiagram = this.maxComponentsPerDiagram;
+        copy.includeInternalComponents = this.includeInternalComponents;
+        copy.diagramTitle = this.diagramTitle;
+        copy.similarityThreshold = this.similarityThreshold;
+        return copy;
     }
 }

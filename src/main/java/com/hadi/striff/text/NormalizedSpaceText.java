@@ -17,4 +17,19 @@ final class NormalizedSpaceText implements Text {
     public String value() {
         return StringUtils.normalizeSpace(this.text.value());
     }
+
+    /**
+     * Returns the original text before normalization.
+     */
+    public String getOriginalText() {
+        return this.text.value();
+    }
+
+    /**
+     * Returns true if the original text has non-normalized spaces.
+     */
+    public boolean needsNormalization() {
+        String val = this.text.value();
+        return val != null && !val.equals(StringUtils.normalizeSpace(val));
+    }
 }

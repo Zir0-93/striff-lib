@@ -82,4 +82,17 @@ public class PUMLDiagram {
         return this.classDiagramDescription;
     }
 
+    /**
+     * Returns true if this diagram has SVG text.
+     */
+    public boolean hasSvg() {
+        return this.svgText != null && !this.svgText.isEmpty();
+    }
+
+    /**
+     * Returns true if this diagram has any components.
+     */
+    public boolean hasComponents() {
+        return this.size > 0;
+    }
 }

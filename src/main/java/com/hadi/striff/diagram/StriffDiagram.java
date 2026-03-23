@@ -136,4 +136,25 @@ public class StriffDiagram {
             return decompressedSvg.toString();
         }
     }
+
+    /**
+     * Returns true if this diagram has SVG code.
+     */
+    public boolean hasSvg() {
+        return this.svgCode != null && !this.svgCode.isEmpty();
+    }
+
+    /**
+     * Returns the number of packages in this diagram.
+     */
+    public int packageCount() {
+        return this.containedPkgs.size();
+    }
+
+    /**
+     * Returns the number of relations in this diagram.
+     */
+    public int relationCount() {
+        return this.diagramRels != null ? this.diagramRels.size() : 0;
+    }
 }

@@ -110,4 +110,18 @@ public class StriffDiagramModel {
             augmenter.augment(codeDiff, this.diagramCmps);
         }
     }
+
+    /**
+     * Returns the number of components in this diagram model.
+     */
+    public int componentCount() {
+        return this.diagramCmps.size();
+    }
+
+    /**
+     * Returns the number of relations in this diagram model.
+     */
+    public int relationCount() {
+        return this.diagramRels.size();
+    }
 }

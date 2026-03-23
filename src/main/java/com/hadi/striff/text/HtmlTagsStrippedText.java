@@ -17,4 +17,19 @@ final class HtmlTagsStrippedText implements Text {
     public String value() {
         return Jsoup.parse(this.text.value()).text();
     }
+
+    /**
+     * Returns true if the text contains HTML tags.
+     */
+    public boolean containsHtml() {
+        String val = this.text.value();
+        return val != null && (val.contains("<") && val.contains(">"));
+    }
+
+    /**
+     * Returns the original text before HTML stripping.
+     */
+    public String originalValue() {
+        return this.text.value();
+    }
 }

@@ -385,4 +385,34 @@ public final class DiagramColorSchemeOverride implements DiagramColorScheme {
         }
         return baseValue;
     }
+
+    /**
+     * Returns the base color scheme used by this override.
+     */
+    public DiagramColorScheme base() {
+        return this.base;
+    }
+
+    /**
+     * Checks if any overrides have been applied.
+     */
+    public boolean hasOverrides() {
+        return defaultFontName != null || backgroundColor != null
+                || defaultClassHeaderColor != null || classArrowFontName != null
+                || classArrowColor != null || objectColorBackground != null
+                || classFontSize != null || classArrowFontColor != null
+                || classArrowFontSize != null || legendBackgroundColor != null
+                || modifiedComponentColor != null || minClassWidth != null
+                || classFontColor != null || classFontName != null
+                || zoomOutIconColor != null || classBorderThickness != null
+                || classAttributeFontName != null || titleFontColor != null
+                || packageBackgroundColor != null || titleFontName != null
+                || classHeaderBackgroundColor != null || packageBorderColor != null
+                || packageBorderThickness != null || dropShadows != null
+                || packageFontColor != null || arrowThickness != null
+                || packageFontName != null || packageFontStyle != null
+                || classBorderColor != null || addedComponentColor != null
+                || addedRelationColor != null || deletedRelationColor != null
+                || deletedComponentColor != null;
+    }
 }

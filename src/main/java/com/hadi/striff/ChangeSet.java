@@ -125,4 +125,32 @@ public final class ChangeSet {
     public boolean inKeyRelationComponents(String cmpUniqueName) {
         return this.keyRelationsComponents.contains(cmpUniqueName);
     }
+
+    /**
+     * Returns the total count of all changes in this changeset.
+     */
+    @JsonProperty("totalChanges")
+    public int totalChanges() {
+        return addedComponents.size() + deletedComponents.size()
+                + modifiedComponents.size() + addedRelations.size()
+                + deletedRelations.size();
+    }
+
+    /**
+     * Checks if the changeset is empty (no changes detected).
+     */
+    @JsonProperty("isEmpty")
+    public boolean isEmpty() {
+        return addedComponents.isEmpty() && deletedComponents.isEmpty()
+                && modifiedComponents.isEmpty() && addedRelations.isEmpty()
+                && deletedRelations.isEmpty();
+    }
+
+    /**
+     * Gets a summary string of the changeset.
+     */
+    public String getSummary() {
+        return String.format("Changeset: %d added, %d deleted, %d modified components",
+                addedComponents.size(), deletedComponents.size(), modifiedComponents.size());
+    }
 }

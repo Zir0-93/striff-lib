@@ -10,7 +10,7 @@ Striffs leverage the basic premise surrounding the utility of line-wise code dif
 ### Getting Started
 * Ensure `graphviz` is installed on your system (required for SVG rendering).
 * Java 17 and Maven 3.x are required (see `pom.xml`).
-* Add the dependency:
+* Add the dependency:  
 
 ```xml
 <dependency>

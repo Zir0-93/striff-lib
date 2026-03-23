@@ -209,4 +209,18 @@ public class DiagramDisplay {
         }
         return baseValue;
     }
+
+    /**
+     * Returns the number of package color mappings.
+     */
+    public int packageCount() {
+        return this.pkgColorMappings().size();
+    }
+
+    /**
+     * Returns the package colors map instance.
+     */
+    PkgColorsMap pkgColorsMap() {
+        return this.pkgColorsMap;
+    }
 }

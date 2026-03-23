@@ -54,4 +54,25 @@ public class PkgColorsMap {
     public Set<Map.Entry<String, String>> mappings() {
         return this.pkgColorMap.entrySet();
     }
+
+    /**
+     * Returns the number of packages in this map.
+     */
+    public int size() {
+        return this.pkgColorMap.size();
+    }
+
+    /**
+     * Returns true if the map contains the specified package.
+     */
+    public boolean containsPackage(String pkg) {
+        return this.pkgColorMap.containsKey(pkg);
+    }
+
+    /**
+     * Returns all package names in this map.
+     */
+    public Set<String> packages() {
+        return this.pkgColorMap.keySet();
+    }
 }

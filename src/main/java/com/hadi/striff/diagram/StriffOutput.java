@@ -122,4 +122,25 @@ public class StriffOutput {
     public Set<String> compileWarnings() {
         return this.compileWarnings;
     }
+
+    /**
+     * Returns the total number of diagrams generated.
+     */
+    public int diagramCount() {
+        return this.diagrams.size();
+    }
+
+    /**
+     * Returns true if there are any compile warnings.
+     */
+    public boolean hasWarnings() {
+        return !this.compileWarnings.isEmpty();
+    }
+
+    /**
+     * Returns the number of compile warnings.
+     */
+    public int warningCount() {
+        return this.compileWarnings.size();
+    }
 }

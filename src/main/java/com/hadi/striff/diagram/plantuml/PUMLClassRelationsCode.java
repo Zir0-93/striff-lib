@@ -132,4 +132,19 @@ final class PUMLClassRelationsCode {
     public String value() {
         return this.tempStrBuilder.toString();
     }
+
+    /**
+     * Returns the number of relations in this code.
+     */
+    public int relationCount() {
+        return this.tempStrBuilder.length() > 0 ?
+                this.tempStrBuilder.toString().split("\n").length : 0;
+    }
+
+    /**
+     * Returns true if the code contains any relations.
+     */
+    public boolean hasRelations() {
+        return this.tempStrBuilder.length() > 0;
+    }
 }

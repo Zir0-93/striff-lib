@@ -140,4 +140,32 @@ public class RelationsMap {
         }
         return new RelationsMap(filteredRelMap);
     }
+
+    /**
+     * Returns true if the relations map is empty.
+     */
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    /**
+     * Returns the number of source components with relations.
+     */
+    public int sourceComponentCount() {
+        return this.relMap.size();
+    }
+
+    /**
+     * Returns all relations of a specific type.
+     */
+    public Set<ComponentRelation> allRelsByType(DiagramConstants.ComponentAssociation type) {
+        return relsByType(type);
+    }
+
+    /**
+     * Returns all components that are sources of relations.
+     */
+    public Set<String> sourceComponents() {
+        return this.relMap.keySet();
+    }
 }

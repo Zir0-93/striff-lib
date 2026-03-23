@@ -86,4 +86,30 @@ public class StriffOperation {
     public StriffOutput result() {
         return this.striffOutput;
     }
+
+    /**
+     * Gets a brief description of this operation's output.
+     */
+    public String getDescription() {
+        return "StriffOperation with " + striffOutput.getChangeSet().totalChanges() + " total changes";
+    }
+
+    /**
+     * Checks if the operation detected any changes.
+     */
+    public boolean hasChanges() {
+        return !striffOutput.getChangeSet().isEmpty();
+    }
+
+    /**
+     * Validates that both project file sets are non-empty.
+     */
+    public static void validateNonEmpty(ProjectFiles originalPFs, ProjectFiles newPFs) {
+        if (originalPFs.files().isEmpty()) {
+            throw new IllegalArgumentException("Original project files cannot be empty");
+        }
+        if (newPFs.files().isEmpty()) {
+            throw new IllegalArgumentException("New project files cannot be empty");
+        }
+    }
 }

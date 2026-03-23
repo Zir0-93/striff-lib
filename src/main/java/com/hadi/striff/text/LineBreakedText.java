@@ -21,4 +21,25 @@ public class LineBreakedText implements Text {
     public String value() {
         return WordUtils.wrap(this.text.value(), this.maxCharsPerLine).trim();
     }
+
+    /**
+     * Returns the maximum characters per line.
+     */
+    public int getMaxCharsPerLine() {
+        return this.maxCharsPerLine;
+    }
+
+    /**
+     * Returns the original text before line breaking.
+     */
+    public String getOriginalText() {
+        return this.text.value();
+    }
+
+    /**
+     * Returns true if the text will be wrapped.
+     */
+    public boolean willWrap() {
+        return this.text.value().length() > this.maxCharsPerLine;
+    }
 }

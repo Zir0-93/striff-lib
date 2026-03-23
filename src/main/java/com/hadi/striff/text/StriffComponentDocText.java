@@ -23,4 +23,25 @@ public final class StriffComponentDocText implements Text {
                                                 new HtmlTagsStrippedText(
                                                         new DefaultText(this.text.trim()))))), lineLength)).value();
     }
+
+    /**
+     * Returns the line length used for formatting.
+     */
+    public int getLineLength() {
+        return this.lineLength;
+    }
+
+    /**
+     * Returns the original text before formatting.
+     */
+    public String getOriginalText() {
+        return this.text;
+    }
+
+    /**
+     * Returns true if the original text is empty.
+     */
+    public boolean isOriginalEmpty() {
+        return this.text == null || this.text.trim().isEmpty();
+    }
 }

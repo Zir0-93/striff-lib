@@ -20,4 +20,18 @@ final class BoldedLineText implements Text {
         }
         return bolded.toString();
     }
+
+    /**
+     * Returns the number of lines in the text.
+     */
+    public int getLineCount() {
+        return text.value().split("\\r?\\n").length;
+    }
+
+    /**
+     * Returns the original text before bolding.
+     */
+    public String getOriginalText() {
+        return text.value();
+    }
 }

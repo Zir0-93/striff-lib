@@ -17,4 +17,20 @@ public final class SpiLoader {
         list.sort(Comparator.comparingInt(orderFn).thenComparing(o -> o.getClass().getName()));
         return list;
     }
+
+    /**
+     * Loads all SPI implementations without ordering.
+     */
+    public static <T> List<T> loadAll(Class<T> spi) {
+        List<T> list = new ArrayList<>();
+        ServiceLoader.load(spi).forEach(list::add);
+        return list;
+    }
+
+    /**
+     * Checks if any SPI implementations are available.
+     */
+    public static <T> boolean hasImplementations(Class<T> spi) {
+        return ServiceLoader.load(spi).iterator().hasNext();
+    }
 }

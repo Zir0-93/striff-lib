@@ -114,4 +114,18 @@ final class PUMLClassDiagramCode {
         }
         return builder.toString();
     }
+
+    /**
+     * Returns the length of the generated code.
+     */
+    public int codeLength() {
+        return this.code.length();
+    }
+
+    /**
+     * Returns true if the code contains the given substring.
+     */
+    public boolean contains(String substring) {
+        return this.code.contains(substring);
+    }
 }

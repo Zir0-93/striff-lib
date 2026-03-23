@@ -41,4 +41,18 @@ public class PUMLPackageCode {
     public String value() {
         return this.code;
     }
+
+    /**
+     * Returns the length of the generated code.
+     */
+    public int codeLength() {
+        return this.code.length();
+    }
+
+    /**
+     * Returns true if the code is empty.
+     */
+    public boolean isEmpty() {
+        return this.code.isEmpty();
+    }
 }

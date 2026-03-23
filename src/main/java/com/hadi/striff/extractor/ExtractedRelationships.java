@@ -227,4 +227,18 @@ public class ExtractedRelationships {
     public RelationsMap result() {
         return this.relationMap;
     }
+
+    /**
+     * Returns the number of relations extracted.
+     */
+    public int relationCount() {
+        return this.relationMap.size();
+    }
+
+    /**
+     * Returns true if no relations were extracted.
+     */
+    public boolean isEmpty() {
+        return this.relationMap.size() == 0;
+    }
 }

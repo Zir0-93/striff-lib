@@ -37,4 +37,19 @@ public final class PackagePartitionStrategy implements PartitionStrategy {
         return this.getClass().getSimpleName();
     }
 
+    /**
+     * Returns the number of partitions created.
+     */
+    public int partitionCount() {
+        return this.partitions.size();
+    }
+
+    /**
+     * Returns the total number of components across all partitions.
+     */
+    public int totalComponentCount() {
+        return this.partitions.stream()
+                .mapToInt(Set::size)
+                .sum();
+    }
 }

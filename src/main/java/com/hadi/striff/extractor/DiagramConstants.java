@@ -91,4 +91,26 @@ public final class DiagramConstants {
     private DiagramConstants() {
 
     }
+
+    /**
+     * Returns the multiplicity separator string.
+     */
+    public static String getMultiplicitySeparator() {
+        return MULTIPLICITY_STRING_SEPERATOR;
+    }
+
+    /**
+     * Parses a multiplicity string into a DefaultClassMultiplicities enum value.
+     */
+    public static DefaultClassMultiplicities parseMultiplicity(String value) {
+        if (value == null || value.isEmpty()) {
+            return DefaultClassMultiplicities.NONE;
+        }
+        for (DefaultClassMultiplicities multiplicity : DefaultClassMultiplicities.values()) {
+            if (multiplicity.value().equals(value)) {
+                return multiplicity;
+            }
+        }
+        return DefaultClassMultiplicities.NONE;
+    }
 }

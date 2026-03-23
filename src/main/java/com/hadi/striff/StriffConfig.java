@@ -189,4 +189,51 @@ public class StriffConfig {
         return "Output Mode: " + this.outputMode + ", Languages: " + this.languages + ", Filter Files: "
                 + this.filesFilter + ", Max Components/Diagram: " + this.maxComponentsPerDiagram;
     }
+
+    /**
+     * Returns true if augmenters are enabled.
+     */
+    public boolean isAugmentersEnabled() {
+        return this.enableAugmenters;
+    }
+
+    /**
+     * Returns true if the config has a custom diagram title.
+     */
+    public boolean hasCustomDiagramTitle() {
+        return this.diagramTitle != null && !this.diagramTitle.isEmpty();
+    }
+
+    /**
+     * Returns true if a display override has been set.
+     */
+    public boolean hasDisplayOverride() {
+        return this.displayOverride != null;
+    }
+
+    /**
+     * Returns true if internal components should be included.
+     */
+    public boolean shouldIncludeInternalComponents() {
+        return this.includeInternalComponents;
+    }
+
+    /**
+     * Creates a builder-style copy of this config.
+     */
+    public StriffConfig copy() {
+        StriffConfig copy = new StriffConfig();
+        copy.outputMode = this.outputMode;
+        copy.filesFilter = new HashSet<>(this.filesFilter);
+        copy.languages = new HashSet<>(this.languages);
+        copy.metadataOnly = this.metadataOnly;
+        copy.colorScheme = this.colorScheme;
+        copy.displayOverride = this.displayOverride;
+        copy.enableAugmenters = this.enableAugmenters;
+        copy.maxComponentsPerDiagram = this.maxComponentsPerDiagram;
+        copy.includeInternalComponents = this.includeInternalComponents;
+        copy.diagramTitle = this.diagramTitle;
+        copy.similarityThreshold = this.similarityThreshold;
+        return copy;
+    }
 }

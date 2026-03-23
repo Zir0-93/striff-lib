@@ -212,4 +212,60 @@ public class DiagramComponent {
         return String.format("DiagramComponent[type=%s, name=%s, children=%d]",
                 this.componentType(), this.name(), this.children.size());
     }
+
+    /**
+     * Returns true if this component is a base component type.
+     */
+    @JsonIgnore
+    public boolean isBaseComponent() {
+        return this.componentType().isBaseComponent();
+    }
+
+    /**
+     * Returns true if this component is a method component type.
+     */
+    @JsonIgnore
+    public boolean isMethodComponent() {
+        return this.componentType().isMethodComponent();
+    }
+
+    /**
+     * Returns true if this component is a variable component type.
+     */
+    @JsonIgnore
+    public boolean isVariableComponent() {
+        return this.componentType().isVariableComponent();
+    }
+
+    /**
+     * Returns true if this component has a comment.
+     */
+    @JsonIgnore
+    public boolean hasComment() {
+        return this.comment() != null && !this.comment().isEmpty();
+    }
+
+    /**
+     * Returns true if this component has any references.
+     */
+    @JsonIgnore
+    public boolean hasReferences() {
+        return this.references() != null && !this.references().isEmpty();
+    }
+
+    /**
+     * Returns true if this component has a source file defined.
+     */
+    @JsonIgnore
+    public boolean hasSourceFile() {
+        return this.sourceFile() != null && !this.sourceFile().isEmpty();
+    }
+
+    /**
+     * Gets the number of augmentations on this component.
+     */
+    @JsonIgnore
+    public int augmentationCount() {
+        return this.augmentations.size();
+    }
 }

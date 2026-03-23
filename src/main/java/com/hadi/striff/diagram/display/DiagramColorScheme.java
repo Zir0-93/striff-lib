@@ -67,4 +67,11 @@ public interface DiagramColorScheme {
     String deletedRelationColor();
 
     String deletedComponentColor();
+
+    /**
+     * Returns a default color scheme instance.
+     */
+    static DiagramColorScheme defaultScheme() {
+        return new LightDiagramColorScheme();
+    }
 }

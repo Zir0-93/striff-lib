@@ -34,4 +34,19 @@ public class ExecutionTimeAspect {
                 + " method: " + (endTime - startTime) + " ms.");
         return proceed;
     }
+
+    /**
+     * Formats the execution time in a human-readable format.
+     */
+    public static String formatExecutionTime(long milliseconds) {
+        if (milliseconds < 1000) {
+            return milliseconds + " ms";
+        } else if (milliseconds < 60000) {
+            return String.format("%.2f sec", milliseconds / 1000.0);
+        } else {
+            long minutes = milliseconds / 60000;
+            long seconds = (milliseconds % 60000) / 1000;
+            return String.format("%d min %d sec", minutes, seconds);
+        }
+    }
 }

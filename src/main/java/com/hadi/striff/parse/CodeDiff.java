@@ -60,4 +60,25 @@ public class CodeDiff {
     public OOPSourceCodeModel newModel() {
         return newModel;
     }
+
+    /**
+     * Returns true if there are any changes detected.
+     */
+    public boolean hasChanges() {
+        return !changeSet.isEmpty();
+    }
+
+    /**
+     * Returns the total number of components across both old and new models.
+     */
+    public int totalComponentCount() {
+        return (int) oldModel.components().count() + (int) newModel.components().count();
+    }
+
+    /**
+     * Returns the number of extracted relations.
+     */
+    public int relationCount() {
+        return extractedRels().size();
+    }
 }

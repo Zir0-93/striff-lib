@@ -35,4 +35,25 @@ public class PUMLRelText {
                 return association.getyumlLinkType();
         }
     }
+
+    /**
+     * Returns true if this relation text has a custom color.
+     */
+    public boolean hasColor() {
+        return this.hexColor != null && !this.hexColor.isEmpty();
+    }
+
+    /**
+     * Returns the color string for this relation.
+     */
+    public String getColor() {
+        return this.hexColor;
+    }
+
+    /**
+     * Returns the association type for this relation.
+     */
+    public ComponentAssociation getAssociation() {
+        return this.association;
+    }
 }

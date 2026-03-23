@@ -332,4 +332,66 @@ public class DiagramDisplayOverride {
         this.deletedComponentColor = deletedComponentColor;
         return this;
     }
+
+    /**
+     * Returns true if any display override has been set.
+     */
+    public boolean hasAnyOverrides() {
+        return defaultFontName != null || backgroundColor != null
+                || defaultClassHeaderColor != null || classArrowFontName != null
+                || classArrowColor != null || objectColorBackground != null
+                || classFontSize != null || classArrowFontColor != null
+                || classArrowFontSize != null || legendBackgroundColor != null
+                || modifiedComponentColor != null || minClassWidth != null
+                || classFontColor != null || classFontName != null
+                || zoomOutIconColor != null || classBorderThickness != null
+                || classAttributeFontName != null || titleFontColor != null
+                || packageBackgroundColor != null || titleFontName != null
+                || classHeaderBackgroundColor != null || packageBorderColor != null
+                || packageBorderThickness != null || dropShadows != null
+                || packageFontColor != null || arrowThickness != null
+                || packageFontName != null || packageFontStyle != null
+                || classBorderColor != null || addedComponentColor != null
+                || addedRelationColor != null || deletedRelationColor != null
+                || deletedComponentColor != null;
+    }
+
+    /**
+     * Clears all override values.
+     */
+    public void clear() {
+        defaultFontName = null;
+        backgroundColor = null;
+        defaultClassHeaderColor = null;
+        classArrowFontName = null;
+        classArrowColor = null;
+        objectColorBackground = null;
+        classFontSize = null;
+        classArrowFontColor = null;
+        classArrowFontSize = null;
+        legendBackgroundColor = null;
+        modifiedComponentColor = null;
+        minClassWidth = null;
+        classFontColor = null;
+        classFontName = null;
+        zoomOutIconColor = null;
+        classBorderThickness = null;
+        classAttributeFontName = null;
+        titleFontColor = null;
+        packageBackgroundColor = null;
+        titleFontName = null;
+        classHeaderBackgroundColor = null;
+        packageBorderColor = null;
+        packageBorderThickness = null;
+        dropShadows = null;
+        packageFontColor = null;
+        arrowThickness = null;
+        packageFontName = null;
+        packageFontStyle = null;
+        classBorderColor = null;
+        addedComponentColor = null;
+        addedRelationColor = null;
+        deletedRelationColor = null;
+        deletedComponentColor = null;
+    }
 }

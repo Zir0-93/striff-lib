@@ -305,4 +305,18 @@ final class PUMLClassFieldsCode {
         text += " " + backgroundColorText + headerColor;
         return text + " ";
     }
+
+    /**
+     * Returns the maximum attribute size threshold.
+     */
+    public static int getMaxAttributeSize() {
+        return MAX_ATTRIBUTE_SIZE;
+    }
+
+    /**
+     * Returns true if the given component has children count exceeding the threshold.
+     */
+    public static boolean isLargeComponent(DiagramComponent cmp) {
+        return cmp.children().size() > MAX_ATTRIBUTE_SIZE;
+    }
 }

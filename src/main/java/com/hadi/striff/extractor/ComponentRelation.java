@@ -124,4 +124,29 @@ public class ComponentRelation implements Comparable<ComponentRelation> {
         // Higher strength sorts first
         return Integer.compare(relation.strength(), this.strength());
     }
+
+    /**
+     * Returns true if this relation has a strong association (composition or specialization).
+     */
+    public boolean isStrongAssociation() {
+        return this.associationType == ComponentAssociation.COMPOSITION
+                || this.associationType == ComponentAssociation.SPECIALIZATION
+                || this.associationType == ComponentAssociation.REALIZATION
+                || this.associationType == ComponentAssociation.AGGREGATION;
+    }
+
+    /**
+     * Returns true if this relation is a dependency.
+     */
+    public boolean isDependency() {
+        return this.associationType == ComponentAssociation.WEAK_ASSOCIATION
+                || this.associationType == ComponentAssociation.ASSOCIATION;
+    }
+
+    /**
+     * Returns a human-readable description of this relation.
+     */
+    public String describe() {
+        return originalComponent.name() + " " + associationType.name() + " " + targetComponent.name();
+    }
 }

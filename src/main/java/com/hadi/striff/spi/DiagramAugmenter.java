@@ -12,4 +12,18 @@ public interface DiagramAugmenter {
     default int order() {
         return 100;
     }
+
+    /**
+     * Returns whether this augmenter should be enabled by default.
+     */
+    default boolean isEnabledByDefault() {
+        return true;
+    }
+
+    /**
+     * Returns a display name for this augmenter.
+     */
+    default String displayName() {
+        return this.getClass().getSimpleName();
+    }
 }

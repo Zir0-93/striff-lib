@@ -12,5 +12,19 @@ public enum PartitionPlacement {
     /**
      * Displays all partitions in a single diagram.
      */
-    CONDENSED
+    CONDENSED;
+
+    /**
+     * Returns whether this placement mode is condensed.
+     */
+    public boolean isCondensed() {
+        return this == CONDENSED;
+    }
+
+    /**
+     * Returns whether this placement mode is one-per-diagram.
+     */
+    public boolean isOnePerDiagram() {
+        return this == ONE_PER_DIAGRAM;
+    }
 }

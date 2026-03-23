@@ -169,4 +169,18 @@ public class LightDiagramColorScheme implements DiagramColorScheme {
     public String legendBackgroundColor() {
         return objectColorBackground();
     }
+
+    /**
+     * Returns the package background color constant.
+     */
+    public static String getPackageBgColor() {
+        return PACKAGE_BG_COLOR;
+    }
+
+    /**
+     * Returns the default class header color constant.
+     */
+    public static String getDefaultClassHeaderColor() {
+        return DEFAULT_CLASS_HEADER_COLOR;
+    }
 }

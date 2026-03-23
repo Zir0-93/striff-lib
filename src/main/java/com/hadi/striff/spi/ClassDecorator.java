@@ -18,4 +18,18 @@ public interface ClassDecorator {
     default int order() {
         return 100;
     }
+
+    /**
+     * Returns whether this decorator should be enabled by default.
+     */
+    default boolean isEnabledByDefault() {
+        return true;
+    }
+
+    /**
+     * Returns a display name for this decorator.
+     */
+    default String displayName() {
+        return this.getClass().getSimpleName();
+    }
 }

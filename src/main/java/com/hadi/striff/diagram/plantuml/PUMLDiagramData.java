@@ -83,4 +83,32 @@ public class PUMLDiagramData {
     public List<DiagramDecorator> diagramDecorators() {
         return diagramDecorators;
     }
+
+    /**
+     * Returns the total number of diagram components.
+     */
+    public int componentCount() {
+        return diagramCmps.size();
+    }
+
+    /**
+     * Returns the total number of relations.
+     */
+    public int relationCount() {
+        return diagramRels.size();
+    }
+
+    /**
+     * Returns the number of class decorators.
+     */
+    public int classDecoratorCount() {
+        return classDecorators.size();
+    }
+
+    /**
+     * Returns the number of diagram decorators.
+     */
+    public int diagramDecoratorCount() {
+        return diagramDecorators.size();
+    }
 }

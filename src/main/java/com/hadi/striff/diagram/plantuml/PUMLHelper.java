@@ -42,4 +42,32 @@ public class PUMLHelper {
         return svgCode.contains("Syntax Error") || svgCode.contains("An error has")
                 || svgCode.contains("[From string (line");
     }
+
+    /**
+     * Returns true if the given SVG code appears valid.
+     */
+    public static boolean isValidSvg(String svgCode) {
+        return !invalidPUMLDiagram(svgCode) && svgCode != null && !svgCode.isEmpty()
+                && (svgCode.contains("<svg") || svgCode.contains("<?xml"));
+    }
+
+    /**
+     * Returns a qualified PlantUML identifier for a component.
+     */
+    public static String qualifiedPumlId(String packageName, String componentName) {
+        if (packageName == null || packageName.isEmpty()) {
+            return pumlId(componentName);
+        }
+        return packageName.replace(".", "-") + "." + pumlId(componentName);
+    }
+
+    /**
+     * Sanitizes a string for use in PlantUML identifiers.
+     */
+    public static String sanitizeId(String id) {
+        if (id == null) {
+            return "";
+        }
+        return id.replace(".", "-").replace("$", "__");
+    }
 }
